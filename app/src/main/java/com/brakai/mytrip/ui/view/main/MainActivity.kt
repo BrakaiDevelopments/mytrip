@@ -1,9 +1,6 @@
 package com.brakai.mytrip.ui.view.main
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import androidx.activity.viewModels
-import com.brakai.mytrip.R
 import com.brakai.mytrip.databinding.ActivityMainBinding
 import com.brakai.mytrip.ui.extenstion.dataBindings
 import com.brakai.mytrip.ui.standard.activity.StandardActivity

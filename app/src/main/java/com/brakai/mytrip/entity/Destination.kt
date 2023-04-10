@@ -3,7 +3,7 @@ package com.brakai.mytrip.entity
 import java.util.*
 
 data class Destination(
-    val id: UUID,
+    val id: String,
     val displayName: String,
     val createdAt: Long,
     val updatedAt: Long,

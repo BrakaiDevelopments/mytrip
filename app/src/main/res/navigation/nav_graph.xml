@@ -2,11 +2,16 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/tripsFragment">
 
 
     <!--<fragment
         android:id="@+id/tripsFragment"
         android:name="com.brakai.mytrip.ui.view.trips.TripsFragment"
         android:label="TripsFragment" />-->
+    <fragment
+        android:id="@+id/tripsFragment"
+        android:name="com.brakai.mytrip.ui.view.trips.TripsFragment"
+        android:label="TripsFragment" />
 </navigation>

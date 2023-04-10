@@ -5,7 +5,7 @@ import java.util.*
 @Suppress("unused", "MemberVisibilityCanBePrivate")
 object TripDummies {
     val trip01 = Trip(
-        UUID.randomUUID(),
+        id = "1",
         displayName = "London",
         displayImage = "",
         locationName = "London",
@@ -18,7 +18,7 @@ object TripDummies {
     )
 
     val trip02 = Trip(
-        UUID.randomUUID(),
+        id = "2",
         displayName = "Paris",
         displayImage = "",
         locationName = "Paris",

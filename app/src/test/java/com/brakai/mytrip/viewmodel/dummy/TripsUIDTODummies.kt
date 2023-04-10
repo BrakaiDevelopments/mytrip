@@ -7,7 +7,7 @@ import java.util.*
 object TripsUIDTODummies {
 
     val dummyTripUIDTO = TripUIDTO(
-        UUID.randomUUID(),
+        id = "1" ,
         displayName = "London",
         displayImage = "",
         locationName = "London",
@@ -20,7 +20,7 @@ object TripsUIDTODummies {
     )
 
     val dummyTripUIDTO1 = TripUIDTO(
-        UUID.randomUUID(),
+        id = "2",
         displayName = "Paris",
         displayImage = "",
         locationName = "Paris",

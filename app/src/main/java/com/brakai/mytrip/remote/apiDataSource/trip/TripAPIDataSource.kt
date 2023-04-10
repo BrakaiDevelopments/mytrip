@@ -12,6 +12,7 @@ class TripAPIDataSource @Inject constructor(
 ) : APIDataSource(), TripRemoteDataSource {
 
     override suspend fun loadTripList(
-    ): List<TripRemoteDTO> = movieApi.loadTripList().bodyOrException().tripList
+    ): List<TripRemoteDTO> = movieApi.loadTripList().bodyOrException()
+//    ): List<TripRemoteDTO> = movieApi.loadTripList().bodyOrException().tripList
 
 }

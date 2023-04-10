@@ -1,12 +1,9 @@
 package com.brakai.mytrip.repository.remote.dto
 
-import androidx.room.PrimaryKey
-import com.brakai.mytrip.entity.Destination
 import com.squareup.moshi.Json
-import java.util.*
 
 data class TripRemoteDTO(
-    @Json(name = "id") val id: UUID,
+    @Json(name = "id") val id: String,
     @Json(name = "displayName") val displayName: String,
     @Json(name = "displayImage") val displayImage: String,
     @Json(name = "locationName") val locationName: String,

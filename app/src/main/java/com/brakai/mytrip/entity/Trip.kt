@@ -1,9 +1,9 @@
 package com.brakai.mytrip.entity
 
-import java.util.UUID
+
 
 data class Trip (
-    val id: UUID,
+    val id: String,
     val displayName: String,
     val displayImage: String,
     val locationName: String,
