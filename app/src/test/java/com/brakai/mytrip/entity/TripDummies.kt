@@ -1,7 +1,5 @@
 package com.brakai.mytrip.entity
 
-import java.util.*
-
 @Suppress("unused", "MemberVisibilityCanBePrivate")
 object TripDummies {
     val trip01 = Trip(
