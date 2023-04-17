@@ -17,10 +17,10 @@
         android:id="@+id/container_CV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_margin="16dp"
         android:clickable="true"
         android:focusable="true"
-        app:cardCornerRadius="2dp"
+        app:cardCornerRadius="4dp"
         app:cardElevation="4dp"
         app:rippleColor="@color/purple_200">
 
@@ -29,47 +29,44 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/movie_poster_IV"
+                android:id="@+id/trip_poster_IV"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="240dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="ContentDescription"
-                tools:src="@mipmap/ic_launcher" />
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                app:cardBackgroundColor="@color/yellow"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="2dp"
-                app:layout_constraintEnd_toEndOf="@+id/movie_poster_IV"
-                app:layout_constraintTop_toTopOf="@+id/movie_poster_IV">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="8dp"
-                    android:paddingEnd="8dp"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    tools:text="9.2" />
-            </com.google.android.material.card.MaterialCardView>
+                tools:src="@tools:sample/backgrounds/scenic" />
 
             <TextView
+                android:id="@+id/trip_title_TV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:text="@{trip.displayImage}"
+                android:textSize="16sp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/trip_duration_TV"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/movie_poster_IV"
-                tools:text="Some title" />
+                app:layout_constraintTop_toBottomOf="@+id/trip_poster_IV"
+                tools:text="Trip to UK" />
+
+            <TextView
+                android:id="@+id/trip_duration_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@{trip.durationText}"
+                tools:text="Apr 8- 16"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/trip_title_TV"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
