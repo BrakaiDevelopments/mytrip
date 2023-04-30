@@ -38,7 +38,7 @@ class TripsViewModelTest {
     }
 
     @Test
-    fun `use movie input port to refresh movies`() = runTest(StandardTestDispatcher()) {
+    fun `use trip input port to refresh trips`() = runTest(StandardTestDispatcher()) {
         viewModel.intents.send(TripsIntent.RefreshTrips)
 
         coVerify { loadTripListInputPort.startUpdatingTripList() }

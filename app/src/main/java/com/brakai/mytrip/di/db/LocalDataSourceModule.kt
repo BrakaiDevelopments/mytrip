@@ -12,6 +12,6 @@ import dagger.hilt.components.SingletonComponent
 interface LocalDataSourceModule {
 
     @Binds
-    fun provide(movieRemoteDataSource: TripDBDataSource): TripLocalDataSource
+    fun provide(tripRemoteDataSource: TripDBDataSource): TripLocalDataSource
 
 }

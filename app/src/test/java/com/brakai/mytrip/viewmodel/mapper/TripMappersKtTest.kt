@@ -6,7 +6,7 @@ import com.brakai.mytrip.viewmodel.dummy.TripsUIDTODummies
 import com.google.common.truth.Truth
 import org.junit.Test
 
-class MovieMappersKtTest {
+class TripMappersKtTest {
 
     @Test
     fun `mapping entity to dto`() {

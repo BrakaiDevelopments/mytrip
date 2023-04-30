@@ -8,11 +8,10 @@ import com.brakai.mytrip.repository.remote.dto.TripRemoteDTO
 import javax.inject.Inject
 
 class TripAPIDataSource @Inject constructor(
-    private val movieApi: TripApi
+    private val tripApi: TripApi
 ) : APIDataSource(), TripRemoteDataSource {
 
     override suspend fun loadTripList(
-    ): List<TripRemoteDTO> = movieApi.loadTripList().bodyOrException()
-//    ): List<TripRemoteDTO> = movieApi.loadTripList().bodyOrException().tripList
+    ): List<TripRemoteDTO> = tripApi.loadTripList().bodyOrException()
 
 }

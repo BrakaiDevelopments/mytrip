@@ -24,10 +24,10 @@ import org.junit.Test
 @ExperimentalCoroutinesApi
 class TripRepositoryImpTest {
     @MockK
-    lateinit var movieRemoteDataSource: TripRemoteDataSource
+    lateinit var tripRemoteDataSource: TripRemoteDataSource
 
     @MockK
-    lateinit var movieLocalDataSource: TripLocalDataSource
+    lateinit var tripLocalDataSource: TripLocalDataSource
 
     @InjectMockKs
     lateinit var repository: TripRepositoryImp
@@ -36,53 +36,53 @@ class TripRepositoryImpTest {
     fun setUp() = MockKAnnotations.init(this, relaxUnitFun = true)
 
     @Test
-    fun `use remote data source to load movie list`() = runBlocking {
-        coEvery { movieRemoteDataSource.loadTripList() } returns DUMMY_TRIP_REMOTE_LIST
+    fun `use remote data source to load trip list`() = runBlocking {
+        coEvery { tripRemoteDataSource.loadTripList() } returns DUMMY_TRIP_REMOTE_LIST
 
         repository.updateTripList()
 
-        coVerify(exactly = 1) { movieRemoteDataSource.loadTripList() }
+        coVerify(exactly = 1) { tripRemoteDataSource.loadTripList() }
     }
 
     @Test
-    fun `use local data source to update movie list`() = runBlocking {
-        coEvery { movieRemoteDataSource.loadTripList() } returns DUMMY_TRIP_REMOTE_LIST
+    fun `use local data source to update trip list`() = runBlocking {
+        coEvery { tripRemoteDataSource.loadTripList() } returns DUMMY_TRIP_REMOTE_LIST
 
         repository.updateTripList()
 
-        coVerify(exactly = 1) { movieLocalDataSource.updateTripList(DUMMY_TRIP_LOCAL_LIST) }
+        coVerify(exactly = 1) { tripLocalDataSource.updateTripList(DUMMY_TRIP_LOCAL_LIST) }
     }
 
     @Test
-    fun `load movies from remote and update local`() = runBlocking {
-        coEvery { movieRemoteDataSource.loadTripList() } returns DUMMY_TRIP_REMOTE_LIST
+    fun `load trips from remote and update local`() = runBlocking {
+        coEvery { tripRemoteDataSource.loadTripList() } returns DUMMY_TRIP_REMOTE_LIST
 
         repository.updateTripList()
 
         coVerify(ordering = Ordering.SEQUENCE) {
-            movieRemoteDataSource.loadTripList()
-            movieLocalDataSource.updateTripList(DUMMY_TRIP_LOCAL_LIST)
+            tripRemoteDataSource.loadTripList()
+            tripLocalDataSource.updateTripList(DUMMY_TRIP_LOCAL_LIST)
         }
     }
 
     @Test
-    fun `use local data source to observe movies`() = runBlocking {
-        val dummyMovieList = DUMMY_LOCAL_TRIP_LIST_FLOW.toList().map { it.toEntity() }
-        coEvery { movieLocalDataSource.observeTrips() } returns DUMMY_LOCAL_TRIP_LIST_FLOW
+    fun `use local data source to observe trips`() = runBlocking {
+        val dummyTripList = DUMMY_LOCAL_TRIP_LIST_FLOW.toList().map { it.toEntity() }
+        coEvery { tripLocalDataSource.observeTrips() } returns DUMMY_LOCAL_TRIP_LIST_FLOW
 
         val result = repository.observeTrips().toList()
 
-        coVerify(exactly = 1) { movieLocalDataSource.observeTrips() }
-        assertThat(result.toList()).isEqualTo(dummyMovieList)
+        coVerify(exactly = 1) { tripLocalDataSource.observeTrips() }
+        assertThat(result.toList()).isEqualTo(dummyTripList)
     }
 
     @Test
-    fun `use local data source to load local movie list size`() = runBlocking {
-        coEvery { movieLocalDataSource.loadTripSize() } returns DUMMY_TRIP_LIST_SIZE
+    fun `use local data source to load local trip list size`() = runBlocking {
+        coEvery { tripLocalDataSource.loadTripSize() } returns DUMMY_TRIP_LIST_SIZE
 
         val result = repository.loadTripSize()
 
-        coVerify(exactly = 1) { movieLocalDataSource.loadTripSize() }
+        coVerify(exactly = 1) { tripLocalDataSource.loadTripSize() }
         assertThat(result).isEqualTo(DUMMY_TRIP_LIST_SIZE)
     }
 

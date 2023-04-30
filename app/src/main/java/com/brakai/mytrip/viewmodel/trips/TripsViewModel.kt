@@ -16,11 +16,11 @@ class TripsViewModel @Inject constructor(
     LoadTripListOutputPort {
 
     override suspend fun handleIntent(intent: TripsIntent) = when (intent) {
-        is TripsIntent.RefreshTrips -> handleRefreshMovies()
+        is TripsIntent.RefreshTrips -> handleRefreshTrips()
         is TripsIntent.OnTripClicked -> handleTripClicked(intent)
     }
 
-    private suspend fun handleRefreshMovies() {
+    private suspend fun handleRefreshTrips() {
         tripInputPort.startUpdatingTripList()
     }
 

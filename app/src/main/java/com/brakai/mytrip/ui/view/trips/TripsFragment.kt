@@ -19,11 +19,11 @@ class TripsFragment : StandardFragment<FragmentTripsBinding, TripsViewModel>(
 ) {
     override val binding by dataBindings(FragmentTripsBinding::bind)
     override val viewModel: TripsViewModel by viewModels()
-    private val moviesAdapter by lazy { TripsAdapter(viewModel) }
+    private val tripsAdapter by lazy { TripsAdapter(viewModel) }
 
     override fun onViewReady() {
-        binding.movieRV.setHasFixedSize(true)
-        binding.movieRV.adapter = moviesAdapter
+        binding.tripRV.setHasFixedSize(true)
+        binding.tripRV.adapter = tripsAdapter
         binding.swipeRefresh.setOnRefreshListener {
             viewModel.runIntent(TripsIntent.RefreshTrips)
         }
@@ -37,7 +37,7 @@ class TripsFragment : StandardFragment<FragmentTripsBinding, TripsViewModel>(
 
     private fun handleTripsList(tripsState: TripsState.TripList) {
         binding.swipeRefresh.isRefreshing = tripsState.isLoading
-        moviesAdapter.items = tripsState.trips
+        tripsAdapter.items = tripsState.trips
     }
 
 }

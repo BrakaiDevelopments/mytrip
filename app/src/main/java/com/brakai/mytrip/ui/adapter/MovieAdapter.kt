@@ -13,7 +13,7 @@ class TripsAdapter(
     private val viewModel: TripsViewModel
 ) : StandardAdapter<TripUIDTO>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MovieHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = TripHolder(
         TripItemBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
@@ -21,7 +21,7 @@ class TripsAdapter(
         )
     )
 
-    inner class MovieHolder(
+    inner class TripHolder(
         private val binding: TripItemBinding
     ) : StandardHolder<TripUIDTO>(binding) {
 

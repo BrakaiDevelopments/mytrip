@@ -12,6 +12,6 @@ import dagger.hilt.components.SingletonComponent
 interface RepositoryModule {
 
     @Binds
-    fun provide(movieGateway: TripRepositoryImp): TripRepository
+    fun provide(tripGateway: TripRepositoryImp): TripRepository
 
 }

@@ -11,7 +11,7 @@ class LoadTripList @Inject constructor(
 
     override suspend fun onReady() {
         observeTrips()
-        loadMoviesIfNeeded()
+        loadTripsIfNeeded()
     }
 
     override suspend fun startUpdatingTripList() {
@@ -21,7 +21,7 @@ class LoadTripList @Inject constructor(
         e?.let { throw e }
     }
 
-    private suspend fun loadMoviesIfNeeded() {
+    private suspend fun loadTripsIfNeeded() {
         if (tripRepository.loadTripSize() <= 0) startUpdatingTripList()
     }
 
